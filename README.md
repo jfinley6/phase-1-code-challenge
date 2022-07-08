@@ -31,10 +31,13 @@ Then, open the `index.html` file on your browser to run the application.
 Write your code in the `src/index.js` file. The base URL for your API will be
 [http://localhost:3000](http://localhost:3000).
 
+
+//////////////////////////////////////////////////////////
 ## Deliverables
 
 As a user, I can:
 
+///////////////////////////////////////////////////////////////////////////
 1. See the image received from the server, including its title, likes and
    comments when the page loads. You will need to make a GET request to the
    following endpoint to retrieve the image data, along with its associated
@@ -69,9 +72,13 @@ As a user, I can:
    }
    ```
 
+
+///////////////////////////////////////////////////////
 2. Click on the heart icon to increase image likes on the page. **No persistence
    is needed**.
 
+
+///////////////////////////////////////////////////////
 3. Add a new comment to the page when the comment form is submitted. **No
    persistence is needed**.
 
@@ -82,15 +89,17 @@ affect your score. **Make sure to commit your work to save your progress before
 attempting the bonus deliverables!**
 
 As a user, I can:
-
+//////////////////////////////////////////////////////
 1. Remove a comment from the page when it is clicked. (Note: no persistence is
    needed; it's fine if the comment shows up again when the page is refreshed)
 
+//////////////////////////////////////////////////////
 2. Click the title of the image to toggle whether or not the image is being
    displayed. Clicking once on the title of the image (the `h2#card-title`
    element) will hide the image element visually. Clicking on the title
    again will display the image once more.
 
+//////////////////////////////////////////////////////
 3. Click the image and see a new random image of a dog. Make a GET request to
    this API to request a random dog image:
    [https://dog.ceo/api/breeds/image/random](https://dog.ceo/api/breeds/image/random)
@@ -104,7 +113,7 @@ These extra bonus deliverables involve using `fetch` to update data on the
 meant for an extra, extra challenge and won't affect your grade. **Make sure to
 commit your work to save your progress before attempting the extra bonus
 deliverables!**
-
+//////////////////////////////////////////////////
 1. When a user adds a new comment to the page using the comment form, in
    addition to having the comment show up on the page, it should **also** be
    saved to the server. You will need to make a request that follows this
@@ -130,7 +139,7 @@ deliverables!**
       "content": "your comment here"
     }
     ```
-
+///////////////////////////////////////////////////////////////
 2. When a user deletes a comment by clicking it, in addition to having the
    comment removed from the page, it should **also** be removed on the server.
    You will need to make a request that follows this structure:
