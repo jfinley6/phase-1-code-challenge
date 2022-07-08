@@ -2,6 +2,13 @@
 const imageURL = "http://localhost:3000/images/1"
 const commentsURL = "http://localhost:3000/comments"
 
+const h2 = document.querySelector(".title")
+h2.setAttribute("onclick", "toggleImage()")
+const likeButton = document.querySelector("#like-button")
+likeButton.setAttribute("onclick", "handleHeart(event)")
+const submitForm = document.querySelector("#comment-form")
+submitForm.setAttribute("onsubmit", "addComment(event)")
+
 //Wait for the DOM to be loaded before calling data
 document.addEventListener("DOMContentLoaded", () => {
     callData()
@@ -13,6 +20,7 @@ function callData() {
     fetch(imageURL)
         .then(res => res.json())
         .then(dogPost => {
+            console.log(dogPost);
             renderPost(dogPost)
         })
 }
@@ -21,7 +29,15 @@ function callData() {
 function callComments() {
     fetch(commentsURL)
         .then(res => res.json())
-        .then(comments => renderComments(comments))
+        .then(comments => {
+            const commentList = document.getElementById("comments-list")
+
+            if (commentList.children.length > 0) {
+                while (commentList.firstChild) {
+                    commentList.firstChild.remove()
+                }
+            }
+            renderComments(comments)})
 }
 
 //Render the title, image, and the amount of likes on the page based on the images data
@@ -40,10 +56,7 @@ function renderPost(dogPost) {
 //Render the comments on the page based on the comment data
 function renderComments(comments) {
     const commentList = document.querySelector("#comments-list")
-    if (commentList.children.length > 0) {
-        const imageClass = document.querySelectorAll(".comment")
-        imageClass.forEach(image => image.remove())
-    }
+    
     comments.forEach(comment => {
         //Create elements for comment content 
         const li = document.createElement("li")
@@ -98,7 +111,7 @@ function handleDelete(e) {
 //When the heart button is clicked, the number of likes is increased and persisted to the server
 function handleHeart() {
     const numberOfLikes = document.querySelector(".likes")
-    numberOfLikes.textContent = `${Number(numberOfLikes.textContent.replace(/\D/g, '')) + Number(1)} likes`
+    numberOfLikes.textContent = `${Number(numberOfLikes.textContent.replace(/\D/g, '')) + 1} likes`
     fetch(imageURL, {
         method: 'PATCH',
         body: JSON.stringify({

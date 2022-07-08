@@ -15,15 +15,18 @@
     <!-- image card -->
     <div class="image-container">
       <div class="image-card">
-        <h2 id="card-title" class="title" onclick="toggleImage()"></h2>
+        <h2 id="card-title" class="title"></h2>
         <img id="card-image" class="image" src="./assets/image-placeholder.jpg" alt="Title of image goes here too" />
         <div class="likes-section">
           <span id="like-count" class="likes"></span>
-          <button id="like-button" class="like-button" onclick="handleHeart(event)">♥</button>
+          <button id="like-button" class="like-button">♥</button>
         </div>
         <ul id="comments-list" class="comments">
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
         </ul>
-        <form id="comment-form" class="comment-form" onsubmit="addComment(event)">
+        <form id="comment-form" class="comment-form">
           <input class="comment-input" type="text" name="comment" id="comment" placeholder="Add a comment..." />
           <button class="comment-button" type="submit">Post</button>
         </form>
